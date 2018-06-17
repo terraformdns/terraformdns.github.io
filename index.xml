@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terraform DNS Project on Terraform DNS</title>
+    <link>https://terraformdns.github.io/</link>
+    <description>Recent content in Terraform DNS Project on Terraform DNS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://terraformdns.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cross-platform DNS Interface</title>
+      <link>https://terraformdns.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://terraformdns.github.io/about/</guid>
+      <description>The Terraform DNS project aims to abstract over the various different DNS hosting products supported by Terraform so that DNS can be used as a standard building-block within your infrastructure, decoupled from other concerns.
+DNS records always have the same high-level structure, regardless of which service is hosting them. Some vendors offer additional features on top of the basic DNS functionality, but there is a common baseline that can be used across many different providers.</description>
+    </item>
+    
+  </channel>
+</rss>

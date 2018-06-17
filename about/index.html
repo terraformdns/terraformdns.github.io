@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Terraform DNS  | Cross-platform DNS Interface</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.42.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.ab4b67a3ea25990fa8279f3b7ef08b61.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="Cross-platform DNS Interface" />
+<meta property="og:description" content="The Terraform DNS project aims to abstract over the various different DNS hosting products supported by Terraform so that DNS can be used as a standard building-block within your infrastructure, decoupled from other concerns.
+DNS records always have the same high-level structure, regardless of which service is hosting them. Some vendors offer additional features on top of the basic DNS functionality, but there is a common baseline that can be used across many different providers." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://terraformdns.github.io/about/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Cross-platform DNS Interface">
+<meta itemprop="description" content="The Terraform DNS project aims to abstract over the various different DNS hosting products supported by Terraform so that DNS can be used as a standard building-block within your infrastructure, decoupled from other concerns.
+DNS records always have the same high-level structure, regardless of which service is hosting them. Some vendors offer additional features on top of the basic DNS functionality, but there is a common baseline that can be used across many different providers.">
+
+
+
+<meta itemprop="wordCount" content="1031">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cross-platform DNS Interface"/>
+<meta name="twitter:description" content="The Terraform DNS project aims to abstract over the various different DNS hosting products supported by Terraform so that DNS can be used as a standard building-block within your infrastructure, decoupled from other concerns.
+DNS records always have the same high-level structure, regardless of which service is hosting them. Some vendors offer additional features on top of the basic DNS functionality, but there is a common baseline that can be used across many different providers."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-purple">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://terraformdns.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Terraform DNS
+    </a>
+    <div class="flex-l items-center">
+      
+      
+
+
+
+
+
+
+
+  <a href="https://github.com/terraformdns" class="link-transition github link dib z-999 pt3 pt0-l mr2" title="Github link">
+    <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+  </a>
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <p class="f6 b helvetica tracked">
+          
+        </p>
+        <h1 class="f1">
+          Cross-platform DNS Interface
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
+        
+
+<p>The Terraform DNS project aims to abstract over the various different DNS
+hosting products supported by Terraform so that DNS can be used as a standard
+building-block within your infrastructure, decoupled from other concerns.</p>
+
+<p>DNS records always have the same high-level structure, regardless of which
+service is hosting them. Some vendors offer additional features on top of
+the basic DNS functionality, but there is a common baseline that can be
+used across many different providers.</p>
+
+<p>The Terraform DNS project defines a standard way to represent DNS recordsets
+and then provides a selection of modules that accept that representation and
+map it on to the relevant resource types of a specific provider.</p>
+
+<h1 id="recordset-type">Recordset Type</h1>
+
+<p>The primary convention established by this project is an object type for
+representing DNS recordsets in Terraform. Recordset objects have the
+following attributes:</p>
+
+<ul>
+<li><p><code>name</code> (string): the local name (relative to the containing zone name) for
+the recordset, as will appear in domain names referring to this record set.
+If the fully-qualified recordset name must match the containing domain,
+set the name to the empty string <code>&quot;&quot;</code>.</p></li>
+
+<li><p><code>type</code> (string): uppercase recordset type keyword, such as <code>&quot;A&quot;</code>, <code>&quot;AAAA&quot;</code>,
+<code>&quot;CNAME&quot;</code>, etc.</p></li>
+
+<li><p><code>ttl</code> (number): whole number of seconds that caching resolvers may retain
+records from this recordset.</p></li>
+
+<li><p><code>records</code> (list of strings): record data in a string format which depends on
+the recordset type.</p></li>
+</ul>
+
+<p>For example, the following literal Terraform language expression is a valid
+recordset object:</p>
+
+<pre><code class="language-hcl">{
+  name    = &quot;www&quot;
+  type    = &quot;CNAME&quot;
+  ttl     = 3600
+  records = [
+    &quot;webserver01&quot;,
+    &quot;webserver02&quot;,
+    &quot;webserver03&quot;,
+  ]
+}
+</code></pre>
+
+<p>The strings in <code>records</code>, as noted above, vary in format depending on the
+record type:</p>
+
+<ul>
+<li><code>A</code>: an IPv4 address in the conventional dotted-decimal syntax, like <code>10.0.2.32</code>.</li>
+<li><code>AAAA</code>: an IPv6 address in the conventional colon-separated hexadecimal syntax.</li>
+<li><code>CNAME</code>: either another relative name within the same zone, or a fully-qualified
+domain name ending with a period <code>.</code>. Hostnames must always be normalized to
+lowercase.</li>
+<li><code>NS</code>: as with <code>CNAME</code>.</li>
+<li><code>PTR</code>: as with <code>CNAME</code>.</li>
+<li><code>TXT</code>: a sequence of characters surrounded by quotes. This means that a
+literal text record must include escaped quotes, like <code>&quot;\&quot;v=spf1\&quot;&quot;</code>.</li>
+<li><code>MX</code>: the MX record priority value as decimal digits, followed by exactly one
+space and then a hostname following the same conventions as for <code>CNAME</code>.</li>
+<li><code>SRV</code>: the SRV record priority value as decimal digits, followed by exactly
+one space and then the record&rsquo;s weight value as decimal digits, followed by
+exactly one space and then the record&rsquo;s port number as decimal digits,
+followed by exactly one more space and then a hostname following the same
+conventions as for <code>CNAME</code>.</li>
+</ul>
+
+<p>Depending on implementation details of the underlying providers, some DNS
+recordset modules may accept alternative representations, but the
+representations given above are required for consistent support across all
+modules.</p>
+
+<p>Due to limitations of the underlying services and Terraform providers, some
+modules can accept only a subset of these record types, as described in their
+respective README files.</p>
+
+<p>Many DNS services treat the <code>NS</code> records for the domain as special, either
+not allowing them to be customized at all or requiring more specialized
+resources to be used. For this reason, using this format to represent
+<code>NS</code> records with an empty <code>name</code> value is not recommended. Instead, configure
+these records as part of creating the zone itself, using a vendor-specific
+resource type directly.</p>
+
+<h2 id="recordset-module-interface">Recordset Module Interface</h2>
+
+<p>This project includes a number of <em>recordset modules</em>, which are normal
+Terraform modules that accept lists of recordsets in the above format and
+map them onto real DNS records in a specific underlying system.</p>
+
+<p>The modules can be browsed via <a href="https://registry.terraform.io/modules/terraformdns">the Terraform Registry index</a>.</p>
+
+<p>A recordset module must always accept a variable called <code>recordsets</code> which
+is defined as follows:</p>
+
+<pre><code class="language-hcl">variable &quot;recordsets&quot; {
+  type = list(object({
+    name    = string
+    type    = string
+    ttl     = number
+    records = list(string)
+  }))
+  description = &quot;List of DNS recordset objects to manage, in the standard terraformdns structure.&quot;
+}
+</code></pre>
+
+<p>A recordset module will usually declare one or more other provider-specific
+input variables to identify the DNS zone in a vendor-specific way. When using
+these modules, the user will set these selector arguments along with the list
+of recordsets to create. For example, for the AWS Route53 module:</p>
+
+<pre><code class="language-hcl">module &quot;dns_records&quot; {
+  source  = &quot;terraformdns/route53-recordsets/aws&quot;
+  version = &quot;...&quot;
+
+  route53_zone_id = aws_route53_zone.example.id
+
+  recordsets = [
+    {
+      name    = &quot;www&quot;
+      type    = &quot;CNAME&quot;
+      ttl     = 3600
+      records = [
+        &quot;webserver01&quot;,
+        &quot;webserver02&quot;,
+        &quot;webserver03&quot;,
+      ]
+    },
+  ]
+}
+</code></pre>
+
+<p>Each module will then perform transform operations on the list of recordsets
+to properly configure instances of provider-specific resource types that
+correspond to the requested recordsets.</p>
+
+<h2 id="decoupled-modular-infrastructure">Decoupled Modular Infrastructure</h2>
+
+<p>A standard representation of DNS recordsets allows Terraform users to write
+re-usable Terraform modules that require DNS records to exist while keeping
+those modules agnostic to the DNS provider in use.</p>
+
+<p>For example, a hypothetical <code>example-app</code> module might export a
+<code>dns_recordsets</code> output value that conforms to the above structure, allowing
+the calling module to then pass that list onto whichever recordset module
+is appropriate for the target environment:</p>
+
+<pre><code class="language-hcl">module &quot;app&quot; {
+  source = &quot;./example-app&quot;
+}
+
+module &quot;dns_records&quot; {
+  source  = &quot;terraformdns/dns-recordsets/azurerm&quot;
+  version = &quot;...&quot;
+
+  resource_group_name = azurerm_resource_group.example.name
+  dns_zone_name       = azurerm_dns_zone.example.name
+  recordsets          = module.app.dns_recordsets
+}
+</code></pre>
+
+<p>This approach allows the definition of the required recordsets to be separated
+from their implementation. Since DNS is often a cross-cutting concern, produced
+and consumed by many separate components in a modular infrastructure, this
+abstraction allows the selection of DNS provider to happen in a central
+location where it can more easily be changed later, without rewriting many
+separate modules that could otherwise all depend on specific DNS providers.</p>
+
+<h1 id="limitations">Limitations</h1>
+
+<p>As with all abstractions, the DNS recordset modules come with some tradeoffs.</p>
+
+<p>By defining a standard interface to all modules, we are forced to reduce the
+supported featureset to the lowest common denominator. In many cases this is
+a fine compromise for DNS, since DNS is well-standardized throughout the
+industry.</p>
+
+<p>However, several DNS hosting vendors provide additional features that are not
+part of the standard DNS featureset, and these cannot be accessed via the
+recordset modules offered as part of this project.</p>
+
+<p>If you wish to use these features, you must make your own tradeoff between
+portability and functionality, and use the underlying provider features
+directly in situations where this project&rsquo;s abstraction is not sufficient.</p>
+
+      </div>
+    </article>
+  </div>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://terraformdns.github.io/" >
+    &copy; 2018 Terraform DNS
+  </a>
+  
+
+
+
+
+
+
+
+  <a href="https://github.com/terraformdns" class="link-transition github link dib z-999 pt3 pt0-l mr2" title="Github link">
+    <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+  </a>
+
+
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
